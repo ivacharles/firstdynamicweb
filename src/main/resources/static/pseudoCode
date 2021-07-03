@@ -1,0 +1,28 @@
+Iva Lesperance Charles
+
+
+This is to explain how I would determine a winner for the TicTacToe game
+
+split this Array of data ["X", "O", "X", "O", "X", "O", "?", "?", "X"]  into 3 Arrays
+x o x
+o x o
+? ? x
+
+if( everything in the 1st array is = "x" OR everything in the 1st array is = "o" )
+    there is a winner and it is 1stArray[0]
+
+if( everything in the 2nd array is = "x" OR everything in the 2nd array is = "o" )
+    there is a winner and it is 1stArray[0]
+if( everything in the 3rd array is = "x" OR everything in the 3dr array is = "o" )
+    there is a winner and it is 1stArray[0]
+
+if(1stArray[0] = 2ndArray[0] = 3rdArray[0])
+    there is a winner and it is 1stArray[0]
+if(1stArray[1] = 2ndArray[1] = 3rdArray[1])
+    there is a winner and it is 1stArray[1]
+if(1stArray[2] = 2ndArray[2] = 3rdArray[2])
+    there is a winner and it is 1stArray[2]
+
+if(1stArray[0] = 2ndArray[1] = 3rdArray[2])
+    there is a winner and it is 1stArray[0]
+

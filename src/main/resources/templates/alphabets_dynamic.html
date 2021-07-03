@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:/www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ABC</title>
+    <link th:href="@{/css/abc.css}" rel="stylesheet" />
+</head>
+<body>
+    <div class="abcParent">
+        <h1>ABC - Dynamic</h1>
+        <div th:each= "x:${alphabets}" th:class="${abcCssClassName}" th:classappend="${x.htmlClass}">
+            <span th:text="${x.letter}"/>
+            <div th:text="${x.number}" class="counter" />
+        </div>
+        <div class="buttonGroup">
+            <form th:object="${abcForm}" >
+                <select th:field="*{displayMode}">
+                    <optgroup label="InClass Portion">
+                        <option value="all" >Show all</option>
+                        <option value="upper">Show only uppercase</option>
+                        <option value="lower">Show only lowercase</option>
+                    </optgroup>
+                    <optgroup label="Take Home Portion / Exam">
+                        <option value="rAll" >(R) Show all</option>
+                        <option value="rUpper">(R) Show only uppercase</option>
+                        <option value="rLower">(R) Show only lowercase</option>
+                    </optgroup>
+                </select>
+                <input name="process" type="submit" />
+            </form>
+        </div>
+    </div>
+</body>
+</html>

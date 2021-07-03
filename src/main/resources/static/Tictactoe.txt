@@ -1,0 +1,45 @@
+"use strict";
+
+(function () {
+
+    let isX = true;
+    let isWinner = false;
+
+    $(".small-box").click(  function() {
+        let m = $("#message").text("");
+
+        let value = $(this).text();
+        if (value !== "?" || isWinner){
+            let message = "Invalid move!";
+            m.text(message);
+            return;
+        }
+
+        let xOrO = isX ? "X" : "O";
+        $(this).text(xOrO);
+        isX = !isX;
+
+        let moves = $(".small-box").text();
+
+        //check for winner and who is the winner
+        let winner = window.cst4713.isWinner(moves);
+        let winnerArray = Object.values(winner);
+
+        if(winnerArray.length > 0){
+            if(winnerArray[0]==="X") {
+                m.text("X is the Winner");
+            }
+            else{
+                m.text("O is the Winner");
+            }
+        }
+
+    });
+
+    $("#btn-clear").click( () => {
+        $(".small-box").text("?");
+        $("#message").text("");
+        isWinner = false;
+    });
+
+})();

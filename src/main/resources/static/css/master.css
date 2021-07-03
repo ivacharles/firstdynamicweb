@@ -1,0 +1,50 @@
+.main{
+    width: 580px;
+    margin: auto;
+    background-color: aquamarine;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+}
+.main h1{
+    font-size: 3em;
+    text-align: center;
+    font-family: "Comic Sans MS";
+    color: blueviolet;
+}
+.tictactoe-boxes div{
+    font-size: 6em;
+    text-align: center;
+    width: 175px;
+    height: 175px;
+    border: 2px solid blueviolet;
+    margin: 5px;
+    padding-top: 20px;
+}
+.tictactoe-boxes{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#btn-clear {
+    width: 200px;
+    height: 60px;
+    font-size: 2em;
+    font-family: "Comic Sans MS";
+    align-self: center;
+    margin-top: 20px;
+    background-color: blueviolet;
+    color: aqua;
+}
+
+.main p{
+    align-self: flex-end;
+    font-size: .6em;
+    font-family: "Comic Sans MS";
+    color: blueviolet;
+
+}
+.winner {
+    color: blueviolet;
+}
+

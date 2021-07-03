@@ -1,0 +1,77 @@
+<html lang="en" xmlns:th="http:/www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Grading Report</title>
+        <link th:href="@{/css/grading.css}" rel="stylesheet" />
+    </head>
+    <body>
+    <div class="body">
+        <table class="students">
+            <caption th:text="${lGrade}" />
+            <thead>
+                <tr>
+                    <th class="center" colspan="7">Exams</th>
+                </tr>
+                <tr>
+                    <th class="center" colspan="7">
+                        Letter Grade:
+                        <a th:href="@{/grades/all}">All</a> &nbsp; &nbsp; &nbsp;
+                        <a th:href="@{/grades/A}">A</a>
+                        <a th:href="@{/grades/A-}">A-</a>
+                        <a th:href="@{/grades/B+}">B+</a>
+                        <a th:href="@{/grades/B}">B</a>
+                        <a th:href="@{/grades/B-}">B-</a>
+                        <a th:href="@{/grades/C+}">C+</a>
+                        <a th:href="@{/grades/C}">C</a>
+                        <a th:href="@{/grades/D}">D</a>
+                        <a th:href="@{/grades/F}">F</a>
+                    </th>
+                </tr>
+                <tr>
+                    <th rowspan="1">id</th>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                    <th>5</th>
+                    <th>status</th>
+                </tr>
+                </thead>
+            <tbody>
+            <tr th:each="x:${grades}">
+                <td th:text="${x.id}" />
+
+                <td th:each="s:${x.scores}" th:text="${s}" />
+
+                <td>
+                    <span th:text="${x.letterGrade}" class="letterGrade" />,
+                    <span th:text="${x.gpa}" class="gpa"/>,
+                    <span th:text="${x.avgScore}" class="score"/>
+                </td>
+            </tr>
+
+            </tbody>
+            <tfoot>
+            <tr>
+                <th>count</th>
+                <th>average</th>
+                <th>max</th>
+                <th>min</th>
+                <th>sum</th>
+                <th>avg &gt; 90</th>
+                <th>avg C,D,F</th>
+            </tr>
+            <tr>
+                <td th:text="${summary.count}" />
+                <td th:text="${summary.average}" />
+                <td th:text="${summary.max}" />
+                <td th:text="${summary.min}" />
+                <td th:text="${summary.sum}" />
+                <td th:text="${summary.avgGTh90}" />
+                <td th:text="${summary.avgLth70}" />
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+    </body>
+</html>
